@@ -1,3 +1,4 @@
+
 // swift-tools-version:5.2
 import PackageDescription
 
@@ -15,7 +16,7 @@ let package = Package(
         .library(name: "SwiftLintFramework", targets: ["SwiftLintFramework"]),
     ],
     dependencies: [
-        .package(name: "swift-argument-parser", url: "https://github.com/apple/swift-argument-parser.git", .upToNextMinor(from: "0.3.1")),
+        .package(name: "swift-argument-parser", url: "https://github.com/apple/swift-argument-parser.git", .upToNextMinor(from: "0.4.0")),
         .package(url: "https://github.com/thii/SourceKitten.git", .branch("fix-build-errors-with-xcode-13-beta")),
         .package(url: "https://github.com/jpsim/Yams.git", from: "4.0.2"),
         .package(url: "https://github.com/scottrhoyt/SwiftyTextTable.git", from: "0.9.0"),
