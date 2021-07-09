@@ -2,9 +2,9 @@
 import PackageDescription
 
 #if canImport(CommonCrypto)
-private let addCryptoSwift = false
+    private let addCryptoSwift = false
 #else
-private let addCryptoSwift = true
+    private let addCryptoSwift = true
 #endif
 
 let package = Package(
@@ -12,11 +12,11 @@ let package = Package(
     platforms: [.macOS(.v10_12)],
     products: [
         .executable(name: "swiftlint", targets: ["swiftlint"]),
-        .library(name: "SwiftLintFramework", targets: ["SwiftLintFramework"])
+        .library(name: "SwiftLintFramework", targets: ["SwiftLintFramework"]),
     ],
     dependencies: [
         .package(name: "swift-argument-parser", url: "https://github.com/apple/swift-argument-parser.git", .upToNextMinor(from: "0.3.1")),
-        .package(url: "https://github.com/jpsim/SourceKitten.git", .upToNextMinor(from: "0.31.0")),
+        .package(url: "https://github.com/thii/SourceKitten.git", .branch("fix-build-errors-with-xcode-13-beta")),
         .package(url: "https://github.com/jpsim/Yams.git", from: "4.0.2"),
         .package(url: "https://github.com/scottrhoyt/SwiftyTextTable.git", from: "0.9.0"),
     ] + (addCryptoSwift ? [.package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.3.2"))] : []),
@@ -39,11 +39,11 @@ let package = Package(
         .testTarget(
             name: "SwiftLintFrameworkTests",
             dependencies: [
-                "SwiftLintFramework"
+                "SwiftLintFramework",
             ],
             exclude: [
                 "Resources",
             ]
-        )
+        ),
     ]
 )
